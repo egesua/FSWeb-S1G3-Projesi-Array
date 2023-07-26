@@ -52,8 +52,8 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 Örneğin: dizi25Cesit(orijinalTatlar) kodunuz düzgün çalışıyorsa true değerini döndürür.
 */
 
-function dizi25Cesitmi(tat) {
-  if (tat.lenght == 25) {
+function dizi25Cesitmi(orijinalTatlar) {
+  if (orijinalTatlar.length == 25) {
     return true;
   } else {
     return false;
@@ -74,9 +74,8 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 
 function cesitEkle(tatlar, yeniTat) {
   tatlar.unshift(yeniTat);
-  return;
+  return tatlar;
 }
-console.log(cesitEkle(orijinalTatlar, "Kakule")
 
 /* Cörev 4:
 
@@ -106,8 +105,9 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/) {
-  /*kod buraya*/
+function indekstekiCesitiGetir(tatlar, sira) {
+  let sonuc = tatlar[sira];
+  return sonuc;
 }
 
 /* Görev 6:
@@ -125,8 +125,14 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/) {
-  /*kod buraya*/
+function ismeGoreCesitCikar(tatlar, lezzet) {
+  const kopyaTatlar = [...tatlar];
+  for (let i = 0; i < kopyaTatlar.length; i++) {
+    if (kopyaTatlar[i] == lezzet) {
+      kopyaTatlar.splice(i, 1);
+    }
+  }
+  return kopyaTatlar;
 }
 
 /* Görev 7:
@@ -149,8 +155,13 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
   Bu sorunu çözmek için GELİŞMİŞ DİZİ YÖNTEMLERİNİ (yani .filter) KULLANMAYIN.
 */
 
-function ismeGoreFiltrele(/*kod buraya*/) {
-  /*kod buraya*/
+function ismeGoreFiltrele(tatlar, lezzet) {
+  let sonuc = [];
+  for (let i = 0; i < tatlar.length; i++)
+    if (tatlar[i].includes(lezzet)) {
+      sonuc.push(tatlar[i]);
+    }
+  return sonuc;
 }
 
 /* ALIŞTIRMA */
